@@ -6,7 +6,7 @@
 
 ## Integrantes
 
-- (Si no modificas esta línea lloro) Babilonia, Aureliano
+- Lazcano Flores Valeria
 - (Si no modificas esta línea lloro) Buendía, Aureliano
 - (Si no modificas esta línea lloro) Segundo, Aureliano
 

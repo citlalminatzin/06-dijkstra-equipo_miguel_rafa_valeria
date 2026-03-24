@@ -5,7 +5,7 @@ import numpy as np
 from numpy import zeros
 from math import inf
 from data import read_data
-from data import df
+
 
 
 def create_adjacency_matrix(tabla)->list[list[float]]:
