@@ -1,14 +1,34 @@
 #!/usr/bin/env python
 
 import matplotlib.pyplot as plt
+import numpy as np
 from numpy import zeros
 from math import inf
+from data import read_data
+from data import df
 
-def create_adjacency_matrix()->list[list[float]]:
+
+def create_adjacency_matrix(tabla)->list[list[float]]:
     """
     Crea una matriz de adyacencia
     """
-    ...
+    max_node = max(tabla['origen'].max(), tabla['destino'].max())
+    n = int(max_node)
+    
+    adj = [[inf]*n for _ in range(n)]
+    
+    for i in range(n):
+        adj[i][i] = 0
+        
+    for _, row in tabla.iterrows():
+        u = int(row['origen']) - 1
+        v = int(row['destino']) - 1
+        w = float(row['peso'])
+        adj[u][v] = w
+        adj[v][u] = w
+        
+    return adj
+
 
 def dijkstra(M: list[list[float]], origin: int) -> list[list[float]]:
     """
@@ -117,4 +137,8 @@ def main():
     ...
 
 if __name__ == "__main__":
-    main()
+    o, d, w, df = read_data("data/distances.csv")
+    print("\nTabla de datos:\n")
+    print(df)
+    matriz_adyacente = create_adjacency_matrix(df)
+    print(matriz_adyacente)
