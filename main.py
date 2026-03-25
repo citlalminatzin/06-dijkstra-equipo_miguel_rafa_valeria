@@ -102,7 +102,6 @@ def dijkstra(M: list[list[float]], origin: int) -> list[list[float]]:
     return D, P
 
 
-
 def minimal_distance(M: list[list[float]], origin:int, destination:int)-> float:
     """
     Devuelve la distancia mínima entre origin y destination
@@ -114,6 +113,30 @@ def minimal_distance(M: list[list[float]], origin:int, destination:int)-> float:
 
     # Regresar la distancia al destino
     return D[destination]
+
+def reconstruir_camino(P, origin, destination):
+    """
+    Reconstruye el camino mínimo desde origin hasta destination
+    usando la lista de predecesores P.
+    """
+
+    camino = []
+    actual = destination
+
+    # recorrer hacia atrás
+    while actual != -1:
+        camino.append(actual)
+        actual = P[actual]
+
+    # invertir para que vaya de origen → destino
+    camino.reverse()
+
+    # verificar que el camino inicia en el origen
+    if camino[0] == origin:
+        return camino
+    else:
+        return []  # no hay camino
+
 
 def ejercicio_1():
     """
@@ -141,6 +164,16 @@ def ejercicio_1():
 
     return D, P
     
+def ejercicio_2(M, origin, destination):
+    """
+    Devuelve el camino mínimo entre origin y destination
+    """
+
+    D, P = dijkstra(M, origin)
+
+    camino = reconstruir_camino(P, origin, destination)
+
+    return camino
 
 def ejercicio_3a():
     """
@@ -203,6 +236,12 @@ def main():
     print("=== Ejercicio 1 ===")
     print("Distancias:", D)
     print("Predecesores:", P)
+
+    # 🔹 Probar Ejercicio 2
+    camino = reconstruir_camino(P, 0, 2)
+    print("=== Ejercicio 2 ===")
+    print("\nCamino de 0 a 2:", camino)
+
 
 if __name__ == "__main__":
     main()
