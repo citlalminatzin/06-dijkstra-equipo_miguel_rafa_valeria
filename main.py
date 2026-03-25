@@ -262,7 +262,7 @@ def main():
     # Ejericio 4
     dist_min, camino = ejercicio_4()
     print("=== Ejercicio 4 ===")
-    print("Distancia minima de 1 a 12:", dist_min)
+    print("Distancia minima de 0 a 11:", dist_min)
     print("Camino de minima distancia:", camino)
 
 
