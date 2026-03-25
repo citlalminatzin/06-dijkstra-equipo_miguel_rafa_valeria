@@ -2,11 +2,10 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from numpy import zeros
 from math import inf
 from data import read_data
-
-
 
 def create_adjacency_matrix(tabla)->list[list[float]]:
     """
@@ -16,7 +15,7 @@ def create_adjacency_matrix(tabla)->list[list[float]]:
     n = int(max_node)
     
     adj = [[inf]*n for _ in range(n)]
-    
+    #Distancia de un nodo a sí mismo es 0
     for i in range(n):
         adj[i][i] = 0
         
@@ -25,44 +24,96 @@ def create_adjacency_matrix(tabla)->list[list[float]]:
         v = int(row['destino']) - 1
         w = float(row['peso'])
         adj[u][v] = w
-        adj[v][u] = w
         
     return adj
 
-
 def dijkstra(M: list[list[float]], origin: int) -> list[list[float]]:
     """
-    M : Matriz de pesos de una gráfica
-    origin: índice del nodo inicial
+    Aplica el algoritmo de Dijkstra.
 
-    returns
-    lista con las distancia de las rutas y el origen de la arista
-    con la que terminó la ruta
+    Parámetros
+    ----------
+    M : matriz de adyacencia (lista de listas)
+        M[u][v] es el peso de la arista de u a v (inf si no existe)
+    origin : int
+        nodo inicial (índice base 0)
+
+    Regresa
+    -------
+    D : lista
+        distancias mínimas desde el nodo origen a cada nodo
+    P : lista
+        predecesor de cada nodo en el camino mínimo
     """
-    # ---
-    # Paso 1: Inicializa las distancias
-    # ---
 
-    # ---
-    # Paso 2: Marca el nodo permanente
-    # ---
+    n = len(M)
 
-    # ---
-    # Paso 3: Identifica los nodos vecinos disponibles
-    # ---
+    # -----------------------------
+    # Paso 1: Inicializar distancias
+    # -----------------------------
+    D = [inf] * n      # distancias
+    P = [-1] * n       # predecesores
+    visited = [False] * n  # nodos permanentes
 
-    # ---
-    # Paso 4: Reetiquetado
-    # ---
+    D[origin] = 0  # distancia del origen a sí mismo es 0
 
-    # ---
-    # Paso 5: Actualizar el nodo permanente
-    # ---
-    ...
+    # -----------------------------
+    # Repetir n veces
+    # -----------------------------
+    for _ in range(n):
+
+        # -----------------------------
+        # Paso 2: elegir nodo permanente
+        # -----------------------------
+        # nodo no visitado con menor distancia
+        u = -1
+        min_dist = inf
+
+        for i in range(n):
+            if not visited[i] and D[i] < min_dist:
+                min_dist = D[i]
+                u = i
+
+        # Si no encontramos nodo válido, terminamos
+        if u == -1:
+            break
+
+        visited[u] = True  # marcar como permanente
+
+        # -----------------------------
+        # Paso 3: vecinos disponibles
+        # -----------------------------
+        for v in range(n):
+
+            # solo si hay arista y no está visitado
+            if M[u][v] != inf and not visited[v]:
+
+                # -----------------------------
+                # Paso 4: Reetiquetado
+                # -----------------------------
+                if D[u] + M[u][v] < D[v]:
+                    D[v] = D[u] + M[u][v]
+                    P[v] = u
+
+        # -----------------------------
+        # Paso 5: se repite el proceso
+        # -----------------------------
+
+    return D, P
+
+
 
 def minimal_distance(M: list[list[float]], origin:int, destination:int)-> float:
-    """Devuelve la distancia mínima entre el origin y destination"""
-    ...
+    """
+    Devuelve la distancia mínima entre origin y destination
+    usando el algoritmo de Dijkstra.
+    """
+
+    # Ejecutar Dijkstra desde el nodo origen
+    D, _ = dijkstra(M, origin)
+
+    # Regresar la distancia al destino
+    return D[destination]
 
 def ejercicio_1():
     """
@@ -76,8 +127,20 @@ def ejercicio_1():
     MD[0,3] = 6
     MD[1,3] = 1
     MD[2,1] = 3
+
+    # 🔥 Convertir 0 → inf (excepto diagonal)
+    for i in range(n):
+        for j in range(n):
+            if i != j and MD[i][j] == 0:
+                MD[i][j] = inf
+
+    #Convertir M a una lista normal 
+    MD = MD.tolist()
+    # Aplicar Dijkstra desde nodo 0
+    D, P = dijkstra(MD, 0)
+
+    return D, P
     
-    return dijkstra(MD, 0)
 
 def ejercicio_3a():
     """
@@ -134,11 +197,14 @@ def ejercicio_4():
     ...
 
 def main():
-    ...
+     # 🔹 Probar Ejercicio 1
+    D, P = ejercicio_1()
+    
+    print("=== Ejercicio 1 ===")
+    print("Distancias:", D)
+    print("Predecesores:", P)
 
 if __name__ == "__main__":
-    o, d, w, df = read_data("data/distances.csv")
-    print("\nTabla de datos:\n")
-    print(df)
-    matriz_adyacente = create_adjacency_matrix(df)
-    print(matriz_adyacente)
+    main()
+   
+    
