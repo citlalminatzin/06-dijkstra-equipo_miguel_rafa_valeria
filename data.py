@@ -31,7 +31,9 @@ def read_data(path="data/distances.csv"):
     return o, d, w, df
 
 #Probabmos que se impriman los datos al ejecutar el script directamente
+"""""
 if __name__ == "__main__":
     o, d, w, df = read_data("data/distances.csv")
     print("\nTabla de datos:\n")
-    print(df)
+    print(df)   
+"""    
