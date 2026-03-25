@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import networkx as nx
 from numpy import zeros
 from math import inf
 from data import read_data
@@ -241,7 +242,36 @@ def ejercicio_4():
     dist_min = d[11]
     camino = reconstruir_camino(p, 0, 11)
 
+    graf(matriz, "Ejercicio4")
+
     return [dist_min, camino]
+
+
+def graf(matriz: list[list[float]], name: str):
+    n = len(matriz)
+    g = nx.DiGraph()
+
+    for i in range(n):
+        for j in range(n):
+            if matriz[i][j] != 0 and matriz[i][j] != inf:
+                g.add_edge(i, j, weight=matriz[i][j])
+
+    large = [(u, v) for (u, v, d) in g.edges(data=True)]
+    pos = nx.bfs_layout(g, 0)
+
+    nx.draw_networkx_nodes(g, pos, node_size=200)
+    nx.draw_networkx_edges(g, pos, edgelist=large, width=3)
+
+    nx.draw_networkx_labels(g, pos, font_size=8)
+    edge_labels = nx.get_edge_attributes(g, "weight")
+    nx.draw_networkx_edge_labels(g, pos, edge_labels)
+
+    ax = plt.gca()
+    plt.axis("off")
+    plt.tight_layout()
+    plt.savefig("media/" + name + ".png")
+
+    return None
 
 
 def main():
