@@ -1,5 +1,5 @@
 
-# Práctica 6 Algoritmo de Dijkstra
+# Práctica 6: Algoritmo de Dijkstra
 
 ## Integrantes
 
@@ -82,7 +82,7 @@ El resultado final es un conjunto de distancias mínimas y un arreglo de predece
 
 ## Ejercicio 1
 
-En el Ejercicio 1 se proporciona una matriz de adyacencia de tamaño ($ 4 \times 4$ ), la cual representa un grafo dirigido ponderado. El objetivo es calcular las distancias mínimas desde el nodo inicial ( 0 ) hacia todos los demás nodos.
+En el Ejercicio 1 se proporciona una matriz de adyacencia de tamaño ($4 \times 4$ ), la cual representa un grafo dirigido ponderado. El objetivo es calcular las distancias mínimas desde el nodo inicial ( 0 ) hacia todos los demás nodos.
 Tras aplicar el algoritmo de Dijkstra, se obtiene un arreglo de distancias:
 
 $$
@@ -91,9 +91,9 @@ $$
 
 Esto indica que:
 
-- La distancia de \( 0 \rightarrow 1 \) es 9  
-- La distancia de \( 0 \rightarrow 3 \) es 6  
-- La distancia de \( 0 \rightarrow 2 \) es 8  
+- La distancia de $( 0 \rightarrow 1 )$ es 9  
+- La distancia de $( 0 \rightarrow 3 )$ es 6  
+- La distancia de $( 0 \rightarrow 2 )$ es 8  
 
 Es importante notar que la distancia hacia el nodo 2 no es directa, sino que se obtiene mediante un camino intermedio:
 
@@ -115,7 +115,31 @@ $$
 
 lo cual confirma la estructura del camino mínimo, indicando que el nodo 2 se alcanza desde el nodo 3, y el nodo 3 desde el nodo 0. Así, se valida el correcto funcionamiento del algoritmo, ya que los resultados coinciden con los cálculos teóricos.
 
----
+## Ejercicio 2 
+
+El Ejercicio 2 consiste en reconstruir el camino mínimo entre dos nodos utilizando el arreglo de predecesores obtenido mediante el algoritmo de Dijkstra.
+
+El procedimiento consiste en partir del nodo destino y seguir los predecesores hasta llegar al origen:
+
+
+$$
+\text{camino} = \{ \text{destination},\; P[\text{destination}],\; P[P[\text{destination}]],\; \dots,\; \text{origin} \}
+$$
+
+Posteriormente, el camino se invierte para obtener la secuencia correcta.
+
+Por ejemplo, para encontrar el camino de $( 0 \rightarrow 2 )$:
+
+- $( P[2] = 3 )$  
+- $( P[3] = 0 )$ 
+
+Por lo tanto, el camino es:
+
+$$
+0 \rightarrow 3 \rightarrow 2
+$$
+
+Este resultado coincide con el obtenido en el Ejercicio 1 y confirma que el algoritmo no solo proporciona la distancia mínima, sino también la estructura del recorrido óptimo.
 
 ## Conclusión
 
