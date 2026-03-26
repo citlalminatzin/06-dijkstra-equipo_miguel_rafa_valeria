@@ -13,14 +13,18 @@
 
 ## Uso e instalación
 
-(Si no eliminas esta línea lloro) Aquí escribe qué necesitas que instale para ejecutar tu código, por ejemplo:
+Aquí escribe qué necesitas que instale para ejecutar tu código, por ejemplo:
 
-- `matplotlib`
+- `matplotlib` : el cual se importa como plt y se instala inf 
+- `numpy` : el  cual se importa como np y se instala zeros
+- `pandas` : el cual se importa como pd
 
-(Si no eliminas esta línea lloro) Y dime cómo debería ejecutar tu código y en qué orden. Recuerda que antes de ejecutar tu código leeré tu `README.md`. Por ejemplo la manera en la que propongo que organizes tu código es
+Y dime cómo debería ejecutar tu código y en qué orden. Recuerda que antes de ejecutar tu código leeré tu `README.md`. Por ejemplo la manera en la que propongo que organizes tu código es
 
+
+- `data.py`: Ejecutamos primero este archivo donde se lee el csv para covertirlo en un dataFrame y posteriormente poder utilizar la función para crear una matriz de adyacencia
 - `main.py`: Contiene el código para graficar cada uno de los tres ejercicios
-- `data.py`: Tal vez aquí puedes leer el csv para a partir crear una matriz de adyacencia
+
 
 ## Conclusión
 

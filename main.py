@@ -42,7 +42,7 @@ def dijkstra(M: list[list[float]], origin: int) -> list[list[float]]:
     # ---
     # Paso 1: Inicializa las distancias
     # ---
-
+    
     # ---
     # Paso 2: Marca el nodo permanente
     # ---
