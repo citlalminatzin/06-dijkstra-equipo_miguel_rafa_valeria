@@ -165,8 +165,17 @@ Gráfica de $M_3$
 
 ## Ejercicio 4
 
+En el ejercicio cuatro basta con utilizar las funcion create_adjacency_matrix, la cual lee los valores de una tabla csv para posteriormente convertirlos en una una matriz de adyacencia con pesos. Para ello, primero crea una matriz con ceros en la diagonal y inf en todas las demas entradas, despues corre un ciclo para las filas de la tabla y marca los valores de origen, destino y peso en la matriz. 
+
+Posteriormente a la creacion de la matriz, se utilizan las funciones previamente explicadas, dijkstra, minimal_distance y reconstruir_camino para calcular la distancia minima entre el nodo 0 y 11, y se imprime el camino de menos distancia. La grafica resultante es la siguiente. 
+
+![Grafica 1, ejericio 4](media/Ejercicio4.png)
+
+con una distancia minima de 0 a 11 de 19, y un recorrido $0 \rightarrow 2 \rightarrow 5 \rightarrow 8 \rightarrow 11 $
+
 ## Conclusión
-El desarrollo de esta práctica permitió comprender e implementar el algoritmo de Dijkstra para la resolución del problema de caminos mínimos en grafos ponderados dirigidos. A partir de la construcción de la matriz de adyacencia y la correcta interpretación de los datos, fue posible calcular las distancias mínimas entre nodos y reconstruir los caminos óptimos mediante el uso de arreglos auxiliares.
+El desarrollo de esta práctica permitió comprender e implementar el algoritmo de Dijkstra para la resolución del problema de caminos mínimos en grafos ponderados dirigidos. A partir de la construcción de la matriz de adyacencia y la correcta interpretación de los datos, fue posible calcular las distancias mínimas entre nodos y reconstruir los caminos óptimos mediante el uso de arreglos auxiliares. 
+
 En particular, el algoritmo de Dijkstra destaca por su claridad conceptual y su aplicabilidad en problemas reales, como la optimización de rutas en redes de transporte o comunicación. La práctica también permitió reforzar habilidades de programación, organización del código y análisis de resultados, elementos fundamentales en la formación en ciencias computacionales.
 
 **Reflexión sobre programación dinámica**
