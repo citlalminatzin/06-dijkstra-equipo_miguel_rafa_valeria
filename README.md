@@ -145,6 +145,12 @@ $$
 
 Este resultado coincide con el obtenido en el Ejercicio 1 y confirma que el algoritmo no solo proporciona la distancia mínima, sino también la estructura del recorrido óptimo.
 
+## Ejercicio 3
+
+El ejercicio 3 consiste en que dada una matriz de pesos, encontremos las distancias mínimas entre nodos para cada uno de ellos. Construimos una función para cada matriz dada (dirigida o no dirigida), donde ya se nos proporciona la matriz (M1, M2, M3), posteriormente para cada función de cada matriz hacemos un for que recorra cada lugar de la matriz $M_r[i][j]$ y en caso de que $i =! j$ y $M_r[i][j] = 0$ hacemos a $M_r[i][j] = inf $ pues $inf$ representa que no existe un peso entre estos nodos.
+Aplicando la función .tolist() para que las matrices se conviertan en listas, y por último aplicamos la función dijkstra donde para $i = j$ es $M_r[i][j] = 0$, y calcula la distancia mínima de nodo a nodo.
+
+
 ## Conclusión
 El desarrollo de esta práctica permitió comprender e implementar el algoritmo de Dijkstra para la resolución del problema de caminos mínimos en grafos ponderados dirigidos. A partir de la construcción de la matriz de adyacencia y la correcta interpretación de los datos, fue posible calcular las distancias mínimas entre nodos y reconstruir los caminos óptimos mediante el uso de arreglos auxiliares.
 En particular, el algoritmo de Dijkstra destaca por su claridad conceptual y su aplicabilidad en problemas reales, como la optimización de rutas en redes de transporte o comunicación. La práctica también permitió reforzar habilidades de programación, organización del código y análisis de resultados, elementos fundamentales en la formación en ciencias computacionales.
