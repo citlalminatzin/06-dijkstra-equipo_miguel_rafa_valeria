@@ -128,10 +128,10 @@ $$
 
 Posteriormente, el camino se invierte para obtener la secuencia correcta.
 
-Por ejemplo, para encontrar el camino de $( 0 \rightarrow 2 )$:
+Por ejemplo, para encontrar el camino de $0 \rightarrow 2$:
 
-- $( P[2] = 3 )$  
-- $( P[3] = 0 )$ 
+- $P[2] = 3$  
+- $P[3] = 0$ 
 
 Por lo tanto, el camino es:
 
