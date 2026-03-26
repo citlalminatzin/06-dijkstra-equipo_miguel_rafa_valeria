@@ -147,16 +147,16 @@ Este resultado coincide con el obtenido en el Ejercicio 1 y confirma que el algo
 
 ## Ejercicio 3
 
-El ejercicio 3 consiste en que dada una matriz de pesos, encontremos las distancias mínimas entre nodos para cada uno de ellos. Construimos una función para cada matriz dada (dirigida o no dirigida), donde ya se nos proporciona la matriz (M1, M2, M3), posteriormente para cada función de cada matriz hacemos un for que recorra cada lugar de la matriz $M_r[i][j]$ $(r\in{1,2,3})$y en caso de que $i \neq j$ y $M_r[i][j] = 0$ hacemos a $M_r[i][j] = inf$ pues $inf$ representa que no existe un peso entre estos nodos.
+El ejercicio 3 consiste en que dada una matriz de pesos, encontremos las distancias mínimas entre nodos para cada uno de ellos. Construimos una función para cada matriz dada (dirigida o no dirigida), donde ya se nos proporciona la matriz $(M_1, M_2, M_3)$, posteriormente para cada función de cada matriz hacemos un for que recorra cada lugar de la matriz $M_r[i][j]$ $(r \in {1,2,3})$y en caso de que $i \neq j$ y $M_r[i][j] = 0$ hacemos a $M_r[i][j] = inf$ pues $inf$ representa que no existe un peso entre estos nodos.
 Aplicando la función .tolist() para que las matrices se conviertan en listas, y por último aplicamos la función dijkstra donde para $i = j$ es $M_r[i][j] = 0$, y calcula la distancia mínima de nodo a nodo.
 
-Gráfica de $M_1:$
+Gráfica de $M_1$
 ![Grafica 1, ejercicio 1](media/ejercicio3a.png)
 
-Gráfica de $M_2:$
+Gráfica de $M_2$
 ![Grafica 1, ejercicio 1](media/ejercicio3b.png)
 
-Gráfica de $M_3:$
+Gráfica de $M_3$
 ![Grafica 1, ejercicio 1](media/ejercicio3c.png)
 
 ## Conclusión
