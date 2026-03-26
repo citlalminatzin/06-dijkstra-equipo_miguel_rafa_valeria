@@ -27,7 +27,7 @@ Manera de ejecutar el código y en qué orden:
 ## Introducción 
 El problema de encontrar rutas óptimas en redes es fundamental en diversas áreas como transporte, telecomunicaciones y ciencias de la computación. En particular, los grafos ponderados permiten modelar situaciones donde las conexiones entre nodos tienen un costo asociado, como distancia, tiempo o peso.
 
-Un grafo dirigido ponderado se define como una estructura ( G = (V, E) ), donde ( V ) es el conjunto de vértices y ( E ) el conjunto de aristas dirigidas, cada una con un peso asociado. Este peso representa el costo de trasladarse de un nodo a otro.
+Un grafo dirigido ponderado se define como una estructura G = (V, E) , donde  V  es el conjunto de vértices y E  el conjunto de aristas dirigidas, cada una con un peso asociado. Este peso representa el costo de trasladarse de un nodo a otro.
 
 El algoritmo de Dijkstra es una herramienta fundamental para resolver el problema del camino más corto desde un nodo origen hacia todos los demás nodos en un grafo con pesos no negativos. Su eficiencia y simplicidad lo convierten en uno de los algoritmos más utilizados en optimización de rutas.
 - ¿Cómo funciona el algoritmo?
@@ -146,5 +146,19 @@ $$
 Este resultado coincide con el obtenido en el Ejercicio 1 y confirma que el algoritmo no solo proporciona la distancia mínima, sino también la estructura del recorrido óptimo.
 
 ## Conclusión
+El desarrollo de esta práctica permitió comprender e implementar el algoritmo de Dijkstra para la resolución del problema de caminos mínimos en grafos ponderados dirigidos. A partir de la construcción de la matriz de adyacencia y la correcta interpretación de los datos, fue posible calcular las distancias mínimas entre nodos y reconstruir los caminos óptimos mediante el uso de arreglos auxiliares.
+En particular, el algoritmo de Dijkstra destaca por su claridad conceptual y su aplicabilidad en problemas reales, como la optimización de rutas en redes de transporte o comunicación. La práctica también permitió reforzar habilidades de programación, organización del código y análisis de resultados, elementos fundamentales en la formación en ciencias computacionales.
 
-¿Te gustó la programación dinámica? ¿Sientes que te será útil? ¿Se te hace una buena estrategia para la resolución de problemas?
+**Reflexión sobre programación dinámica**
+
+La programación dinámica es una técnica algorítmica que consiste en dividir un problema en subproblemas más pequeños y almacenar sus soluciones para evitar cálculos repetitivos. Aunque el algoritmo de Dijkstra no es un ejemplo directo de programación dinámica (porque no recalcula subproblemas, cada nodo se vuelve permanente UNA sola vez, ie, nunca lo vuelve a recalcular), comparte ciertas ideas como la construcción progresiva de soluciones óptimas a partir de resultados previos.
+
+Desde mi perspectiva, la programación dinámica es una estrategia interesante y potencialmente muy útil, especialmente en problemas donde existen subestructuras óptimas y superposición de subproblemas. Sin embargo, requiere un nivel de abstracción mayor y una buena comprensión del problema para identificar cuándo puede aplicarse correctamente.
+
+En relación con la práctica realizada, considero que aunque no se utilizó programación dinámica de forma directa, el enfoque algorítmico empleado permite entender la importancia de estructurar soluciones eficientes y evitar cálculos innecesarios. En este sentido, sí considero que este tipo de estrategias serán útiles en el futuro, particularmente en problemas más complejos dentro de la computación.
+
+En conclusión, la programación dinámica representa una herramienta poderosa para la resolución de problemas, y aunque aún se encuentra en proceso de comprensión, su estudio será de gran utilidad en el desarrollo de habilidades algorítmicas.
+
+
+
+¿
