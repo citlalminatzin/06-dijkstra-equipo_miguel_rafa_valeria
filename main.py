@@ -272,12 +272,12 @@ def ejercicio_4():
     dist_min = d[11]
     camino = reconstruir_camino(p, 0, 11)
 
-    graf(matriz, "Ejercicio4")
+    graf(matriz, "Ejercicio4", True, True)
 
     return [dist_min, camino]
 
 
-def graf(matriz: list[list[float]], name: str, dir=True):
+def graf(matriz: list[list[float]], name: str, dir=True, bfs=False):
     n = len(matriz)
     if dir:
         g = nx.DiGraph()
@@ -290,7 +290,11 @@ def graf(matriz: list[list[float]], name: str, dir=True):
                 g.add_edge(i, j, weight=matriz[i][j])
 
     large = [(u, v) for (u, v, d) in g.edges(data=True)]
-    pos = nx.bfs_layout(g, 0)
+
+    if bfs:
+        pos = nx.bfs_layout(g, 0)
+    else:
+        pos = nx.spring_layout(g, seed=1270)
 
     nx.draw_networkx_nodes(g, pos, node_size=200)
     nx.draw_networkx_edges(g, pos, edgelist=large, width=3)
