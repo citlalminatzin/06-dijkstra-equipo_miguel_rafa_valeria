@@ -7,7 +7,7 @@
 ## Integrantes
 
 - Lazcano Flores Valeria
-- (Si no modificas esta línea lloro) Buendía, Aureliano
+- Sánchez García Rafael
 - (Si no modificas esta línea lloro) Segundo, Aureliano
 
 
