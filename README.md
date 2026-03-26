@@ -151,13 +151,16 @@ El ejercicio 3 consiste en que dada una matriz de pesos, encontremos las distanc
 Aplicando la función .tolist() para que las matrices se conviertan en listas, y por último aplicamos la función dijkstra donde para $i = j$ es $M_r[i][j] = 0$, y calcula la distancia mínima de nodo a nodo.
 
 Gráfica de $M_1$
-![Grafica 1, ejercicio 1](media/ejercicio3a.png)
+![Grafica 1, ejercicio 3a](media/ejercicio3a.png)
 
 Gráfica de $M_2$
-![Grafica 1, ejercicio 1](media/ejercicio3b.png)
+![Grafica 1, ejercicio 3b](media/ejercicio3b.png)
 
 Gráfica de $M_3$
-![Grafica 1, ejercicio 1](media/ejercicio3c.png)
+![Grafica 1, ejercicio 3c](media/ejercicio3c.png)
+
+
+## Ejercicio 4
 
 ## Conclusión
 El desarrollo de esta práctica permitió comprender e implementar el algoritmo de Dijkstra para la resolución del problema de caminos mínimos en grafos ponderados dirigidos. A partir de la construcción de la matriz de adyacencia y la correcta interpretación de los datos, fue posible calcular las distancias mínimas entre nodos y reconstruir los caminos óptimos mediante el uso de arreglos auxiliares.
