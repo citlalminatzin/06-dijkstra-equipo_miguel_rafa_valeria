@@ -247,9 +247,12 @@ def ejercicio_4():
     return [dist_min, camino]
 
 
-def graf(matriz: list[list[float]], name: str):
+def graf(matriz: list[list[float]], name: str, dir=True):
     n = len(matriz)
-    g = nx.DiGraph()
+    if dir:
+        g = nx.DiGraph()
+    else:
+        g = nx.Graph()
 
     for i in range(n):
         for j in range(n):
