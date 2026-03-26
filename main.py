@@ -223,6 +223,17 @@ def ejercicio_3b():
     M2[1, 3] = 1
     M2[2, 1] = 3
 
+    # convertir 0 → inf
+    for i in range(n):
+        for j in range(n):
+            if i != j and M2[i][j] == 0:
+                M2[i][j] = inf
+
+    M2 = M2.tolist()
+    distancias = [dijkstra(M2, i) for i in range(n)]
+
+    graf(M2, "ejercicio3b")
+
     distancias = [dijkstra(M2, i) for i in range(n)]
     return distancias
 
@@ -237,6 +248,17 @@ def ejercicio_3c():
     M3[1, 2] = 5
     M3[1, 3] = 11
     M3[2, 3] = 6
+
+    # convertir 0 → inf
+    for i in range(n):
+        for j in range(n):
+            if i != j and M3[i][j] == 0:
+                M3[i][j] = inf
+
+    M3 = M3.tolist()
+    distancias = [dijkstra(M3, i) for i in range(n)]
+
+    graf(M3, "ejercicio3c")
 
     distancias = [dijkstra(M3, i) for i in range(n)]
     return distancias
@@ -305,6 +327,20 @@ def main():
     print("=== Ejercicio 3a ===")
     res_3a = ejercicio_3a()
     for i, (D, _) in enumerate(res_3a):
+        print(f"Desde nodo {i}: {D}")
+    print()
+
+    # Ejercicio 3b
+    print("=== Ejercicio 3b ===")
+    res_3b = ejercicio_3b()
+    for i, (D, _) in enumerate(res_3b):
+        print(f"Desde nodo {i}: {D}")
+    print()
+
+    # Ejercicio 3c
+    print("=== Ejercicio 3c ===")
+    res_3c = ejercicio_3c()
+    for i, (D, _) in enumerate(res_3c):
         print(f"Desde nodo {i}: {D}")
     print()
 
