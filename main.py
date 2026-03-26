@@ -223,6 +223,17 @@ def ejercicio_3b():
     M2[1, 3] = 1
     M2[2, 1] = 3
 
+    # convertir 0 → inf
+    for i in range(n):
+        for j in range(n):
+            if i != j and M2[i][j] == 0:
+                M2[i][j] = inf
+
+    M2 = M2.tolist()
+    distancias = [dijkstra(M2, i) for i in range(n)]
+
+    graf(M2, "ejercicio3b")
+
     distancias = [dijkstra(M2, i) for i in range(n)]
     return distancias
 
@@ -241,8 +252,9 @@ def ejercicio_3c():
     #convertir 0 -> inf
     for i in range(n):
         for j in range(n):
-            if i <= j and M3[i][j] == 0:
+            if i != j and M3[i][j] == 0:
                 M3[i][j] = inf
+                
     # Convertir M a una lista normal
     M3 = M3.tolist()
     distancias = [dijkstra(M3, i) for i in range(n)]
@@ -318,6 +330,13 @@ def main():
         print(f"Desde nodo {i}: {D}")
     print()
 
+    # Ejercicio 3b
+    print("=== Ejercicio 3b ===")
+    res_3b = ejercicio_3b()
+    for i, (D, _) in enumerate(res_3b):
+        print(f"Desde nodo {i}: {D}")
+    print()
+    
     # Ejercicio 3c
     print("=== Ejercicio 3c ===")
     res_3c = ejercicio_3c()
@@ -330,6 +349,7 @@ def main():
     print("=== Ejercicio 4 ===")
     print("Distancia minima de 0 a 11:", dist_min)
     print("Camino de minima distancia:", camino)
+    
 
 
 if __name__ == "__main__":
