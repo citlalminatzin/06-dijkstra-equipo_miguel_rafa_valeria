@@ -200,15 +200,16 @@ def ejercicio_3a():
     M1[5, 6] = M1[6, 5] = 3
     M1[6, 7] = M1[7, 6] = 5
 
-
-    #convertir 0 → inf
+    # convertir 0 → inf
     for i in range(n):
         for j in range(n):
             if i != j and M1[i][j] == 0:
                 M1[i][j] = inf
-    
+
     M1 = M1.tolist()
     distancias = [dijkstra(M1, i) for i in range(n)]
+
+    graf(M1, "ejercicio3a", False)
     return distancias
 
 
@@ -280,12 +281,13 @@ def graf(matriz: list[list[float]], name: str, dir=True):
     plt.axis("off")
     plt.tight_layout()
     plt.savefig("media/" + name + ".png")
+    ax.clear()
 
     return None
 
 
 def main():
-    #Probar Ejercicio 1
+    # Probar Ejercicio 1
     D, P = ejercicio_1()
 
     print("=== Ejercicio 1 ===")
@@ -299,13 +301,13 @@ def main():
     print("Camino de 0 a 2:", camino)
     print()
 
-
-    #Ejercicio 3a
-    print("=== Ejercicio 3a ===")  
-    res_3a= ejercicio_3a()
+    # Ejercicio 3a
+    print("=== Ejercicio 3a ===")
+    res_3a = ejercicio_3a()
     for i, (D, _) in enumerate(res_3a):
         print(f"Desde nodo {i}: {D}")
-           
+    print()
+
     # Ejericio 4
     dist_min, camino = ejercicio_4()
     print("=== Ejercicio 4 ===")
