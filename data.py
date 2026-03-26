@@ -1,19 +1,39 @@
 #!/usr/bin/env python
+import numpy as np
+import pandas as pd
 
-from yfinance import Ticker
+def read_data(path="data/distances.csv"):
+    """
+    Lee un archivo CSV con aristas de un grafo.
 
-def get_stock_data(ticker:str = "^GSPC", years: int = 5, path:str = "data/sp500.csv"):
-    """Gets historic data for a ticker from yfinance API"""
-    t = str(years) + "y"
-    stock = Ticker(ticker).history(period = t)
-    stock.to_csv(path, encoding = 'utf-8')
+    Parámetro
+    ----------
+    path : str
+        Ruta al archivo csv.
 
-def read_data(path="data/pescados.csv"):
-    """Lee los datos de un csv y te los devuelve"""
-    ...
+    Regresa
+    -------
+    origin : numpy.array
+        Nodo origen.
+    destination : numpy.array
+        Nodo destino.
+    weight : numpy.array
+        Peso de la arista.
+    df : pandas.DataFrame
+        Tabla con los datos.
+    """
+    data = np.genfromtxt(path, delimiter=",", skip_header=1)
+    o = data[:, 0]
+    d = data[:, 1]
+    w = data[:, 2]
+    df = pd.DataFrame({'origen': o, 'destino': d, 'peso': w})
 
-def main():
-    get_stock_data()
+    return o, d, w, df
 
+#Probabmos que se impriman los datos al ejecutar el script directamente
+"""""
 if __name__ == "__main__":
-    main()
+    o, d, w, df = read_data("data/distances.csv")
+    print("\nTabla de datos:\n")
+    print(df)   
+"""    
