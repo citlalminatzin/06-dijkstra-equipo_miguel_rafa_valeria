@@ -20,7 +20,7 @@ def ejercicio_1():
     MD[1, 3] = 1
     MD[2, 1] = 3
 
-    # 🔥 Convertir 0 → inf (excepto diagonal)
+    #  Convertir 0 → inf (excepto diagonal)
     for i in range(n):
         for j in range(n):
             if i != j and MD[i][j] == 0:
