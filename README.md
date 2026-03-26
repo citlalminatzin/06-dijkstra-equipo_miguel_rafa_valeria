@@ -1,6 +1,5 @@
 
-# Práctica 6
-Algoritmo de Dijkstra
+# Práctica 6 Algoritmo de Dijkstra
 
 ## Integrantes
 
@@ -28,9 +27,11 @@ Un grafo dirigido ponderado se define como una estructura ( G = (V, E) ), donde 
 
 El algoritmo de Dijkstra es una herramienta fundamental para resolver el problema del camino más corto desde un nodo origen hacia todos los demás nodos en un grafo con pesos no negativos. Su eficiencia y simplicidad lo convierten en uno de los algoritmos más utilizados en optimización de rutas.
 - ¿Cómo funciona el algoritmo?
+
 El algoritmo de Dijkstra es un método iterativo que construye progresivamente las distancias mínimas desde un nodo origen hacia todos los demás nodos del grafo.
 
 Sea una matriz de adyacencia $( M )$, donde:
+
 $$
 M[u][v] =
 \begin{cases}
@@ -75,15 +76,13 @@ El algoritmo sigue los siguientes pasos:
 4. **Actualización de predecesores:**  
    Si la distancia mejora, se registra el nodo previo:
 
-   $$
-   P[v] = u
-   $$
+   $$P[v] = u$$
 
 5. **Repetición:**  
    El proceso continúa hasta que todos los nodos han sido visitados o no hay más nodos alcanzables.
 
 
-   
+
 ## Conclusión
 
 ¿Te gustó la programación dinámica? ¿Sientes que te será útil? ¿Se te hace una buena estrategia para la resolución de problemas?
